@@ -2,7 +2,7 @@
 <div class="container-fluid" id="about">
     <div class="row">
         <div class="col-md-6 offset-md-3">
-            <form id="formVideo" method="post" action="/videos" id="form" enctype="multipart/form-data">
+            <form id="formVideo" method="post" action="/videos/<%= video._id %>?_method=PUT" id="form" enctype="multipart/form-data">
              <div class="form-group">
                <label for="exampleFormControlInput1">Edit title</label>
                <input name="title" type="text" class="form-control" id="exampleFormControlInput1" value="<%= video.title %>" required>
@@ -17,7 +17,7 @@
             </div>
             <div class="form-group">
                <label for="video">Edit video</label>
-               <input type="file" class="form-control-file" id="video" name="url" accept="video/mp4" required>
+               <input type="file" class="form-control-file" id="video" name="url" accept="video/mp4">
             </div>
             <button type="submit" class="btn btn-secondary">Submit</button>
             <div class="progress">
