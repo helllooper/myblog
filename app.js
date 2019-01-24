@@ -565,12 +565,12 @@ app.post("/contact", function(req, res){
       smtpTransport.sendMail(mailOptions, function(err) {
         if(err){
             console.log(err);
-            req.flash(err.message);
+            req.flash("error", err.message);
             res.redirect("back");
         }
         else {
             console.log('mail sent');
-            req.flash('Contact has been sent');
+            req.flash("success", 'Your message has been sent');
             res.redirect("/");
         }
         
