@@ -426,7 +426,7 @@ app.delete("/articles/:id/:commentId", isEmad, function(req, res){
           'This is a confirmation that the password for your account ' + user.email + ' has just been changed.\n'
       };
       smtpTransport.sendMail(mailOptions, function(err) {
-        req.flash('success', 'Success! Your password has been changed.');
+        req.flash('success', 'Your password has been changed.');
         done(err);
       });
     }
@@ -434,7 +434,7 @@ app.delete("/articles/:id/:commentId", isEmad, function(req, res){
       if(err){
           console.log(err);
       }else{
-             res.redirect('/articles');
+             res.redirect('/');
           
       }
   });
