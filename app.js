@@ -21,7 +21,7 @@ var stripe = require("stripe")("sk_test_pDkae3ldurSzJHkupw0oveI6");
 
 
 // mongoose.connect("mongodb://localhost:27017/emad-blog", {useNewUrlParser: true});
-mongoose.connect(process.env.DATABASEURL)
+mongoose.connect("mongodb://<dbuser>:<dbpassword>@ds111455.mlab.com:11455/emad-blog");
 app.use(flash());
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(expressSanitizer());
