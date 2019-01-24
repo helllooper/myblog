@@ -595,9 +595,7 @@ function isEmad (req, res, next){
     }
 }
 
-function escapeRegex(text) {
-    return text.replace(/[-[\]{}()*+?.,\\^$|#\s]/g, "\\$&");
-}
+
 
 
 app.listen(process.env.PORT, process.env.IP, function(){
