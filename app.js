@@ -486,6 +486,7 @@ app.put("/videos/:id", isEmad,upload.single('url'), function(req, res){
             }
             video.title =  req.sanitize(req.body.title);
             video.body = req.sanitize(req.body.body);
+            video.poster = req.sanitize(req.body.poster);
             video.save();
             req.flash("success","Successfully Updated!");
             res.redirect("/videos");
