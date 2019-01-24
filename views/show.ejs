@@ -1,0 +1,50 @@
+<% include partials/header %>
+
+<div class="container">
+ <div class="row port1">
+        <div class="col-md-8">
+          <h4><%= article.title %></h4>
+          <span><%= article.date.toDateString() %></span>
+          <p><%= article.body %></p>
+        </div>
+        <div class="col-md-4"><img src="<%= article.image %>" class="img-fluid img-thumbnail"></div>
+        <% if (currentUser && currentUser.username === "Emad"){ %>
+        <a href="/articles/<%= article._id %>/edit" class="btn btn-outline-success" id="edit">Edit</a>
+        <form action="/articles/<%= article._id %>?_method=DELETE" method="POST">
+            <button class="btn btn-danger">Delete</button>
+        </form>
+        <% } %>
+      </div>
+</div>
+ <div class="container">
+     <h4 id="comments">Comments:</h4>
+     <% article.comments.forEach(function(comment){ %>
+         <div class="alert alert-secondary" role="alert">
+             <h5><%= comment.user %> :</h5>
+             <p><%= comment.text %></p>
+            <% if (currentUser && currentUser.username === "Emad"){ %>
+                 <form action="/articles/<%= article._id %>/<%= comment._id %>?_method=DELETE" method="POST">
+                    <button type="submit" class="btn btn-danger">Delete</button> 
+                 </form>
+            <% } %>
+         </div>
+     <% }) %>
+     <form method="POST" action="/articles/<%= article._id %>">
+         
+         <div class="form-group">
+             <textarea class="form-control" rows="3" name="text"></textarea>
+         </div>
+         <button type="submit" class="btn btn-outline-dark">Comment</button>
+
+     </form>
+ </div>
+ 
+
+<% include partials/footer2 %>
+
+
+   
+    
+    
+    
+

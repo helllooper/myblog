@@ -1,0 +1,31 @@
+<% include partials/header %>
+<!-- end of navbar -->
+<div class="container port1">
+  
+    <% videos.forEach(function(video){%>
+      <div class="row">
+        <div class="col-lg-8">
+          <h4><a href="#"><%= video.title %></a></h4>
+          <span><%= video.date.toDateString() %></span>
+          <p><%= video.body %></p>
+        </div>
+        <div class="col-lg-4">
+            <video poster="<%= video.poster %>" controls>
+            <source src="<%= video.url %>" type="video/mp4">
+            Your browser does not support HTML5 video.
+           </video></div>
+            <% if (currentUser && currentUser.username === "Emad"){ %>
+              <a href="/videos/<%= video._id %>/edit" class="btn btn-outline-success" id="edit">Edit</a>
+              <form action="/videos/<%= video._id %>?_method=DELETE" method="POST">
+              <button type="submit" class="btn btn-danger">Delete</button>
+              </form>
+            <% } %>
+      </div>
+    <% }) %>
+    <% if (currentUser && currentUser.username === "Emad"){%>
+    <a href="/videos/newVideo" class="btn btn-dark">Add new video</a>
+    <% } %>
+   
+</div>
+
+<% include partials/footer2 %>
