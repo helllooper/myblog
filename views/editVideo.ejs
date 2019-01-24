@@ -5,15 +5,15 @@
             <form id="formVideo" method="post" action="/videos" id="form" enctype="multipart/form-data">
              <div class="form-group">
                <label for="exampleFormControlInput1">Edit title</label>
-               <input name="title" type="text" class="form-control" id="exampleFormControlInput1" required>
+               <input name="title" type="text" class="form-control" id="exampleFormControlInput1" value="<%= video.title %>" required>
             </div>
             <div class="form-group">
                <label for="exampleFormControlTextarea1">Edit description</label>
-               <textarea name="body" class="form-control" id="exampleFormControlTextarea1" rows="3" required></textarea>
+               <textarea name="body" class="form-control" id="exampleFormControlTextarea1" rows="3" required><%= video.body %></textarea>
             </div>
               <div class="form-group">
                <label for="exampleFormControlInput2">Edit Poster</label>
-               <input name="poster" type="text" class="form-control" id="exampleFormControlInput2" required>
+               <input name="poster" type="text" class="form-control" id="exampleFormControlInput2" value="<%= video.poster %>" required>
             </div>
             <div class="form-group">
                <label for="video">Edit video</label>
