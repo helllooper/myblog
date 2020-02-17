@@ -170,6 +170,9 @@ li {
   top: 30em;
   overflow: hidden;
   background-color: white;
+  @media (max-width: @iphone-screen) {
+    background-attachment: scroll;
+}
 }
 
 #port3 {
