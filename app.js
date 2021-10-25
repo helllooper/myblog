@@ -20,8 +20,8 @@ var stripe = require("stripe")("sk_test_pDkae3ldurSzJHkupw0oveI6");
 
 
 
-// mongoose.connect("mongodb://localhost:27017/emad-blog", {useNewUrlParser: true});
-mongoose.connect(process.env.DATABASEURL);
+mongoose.connect("mongodb://localhost:27017/emad-blog", {useNewUrlParser: true});
+// mongoose.connect(process.env.DATABASEURL);
 app.use(flash());
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(expressSanitizer());
@@ -323,7 +323,7 @@ app.delete("/articles/:id/:commentId", isEmad, function(req, res){
         res.render("email");
     });
     
-    app.post('/login/email', function(req, res, next) {
+  app.post('/login/email', function(req, res, next) {
   async.waterfall([
     function(done) {
       crypto.randomBytes(20, function(err, buf) {
@@ -553,7 +553,7 @@ app.post("/contact", function(req, res){
         service: 'Gmail', 
         auth: {
           user: 'emadsblog@gmail.com',
-          pass: process.env.GMAILPW
+          pass: "emad1987emad?"
         }
       });
       var mailOptions = {
@@ -599,6 +599,6 @@ function isEmad (req, res, next){
 
 
 
-app.listen(process.env.PORT, process.env.IP, function(){
+app.listen(3000, process.env.IP, function(){
     console.log("Server has started");
 });
